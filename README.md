@@ -25,6 +25,16 @@ Both algorithms were tested on the same graph to compare their practical perform
 
 Both BFS and DFS search for a path from node A to node AD.
 
+## Algorithms Used
+
+### Breadth-First Search (BFS)
+
+BFS explores the graph level by level. It uses a queue to store nodes that are yet to be explored.
+
+### Depth-First Search (DFS)
+
+DFS explores a branch of the graph as deeply as possible before backtracking. It uses a stack to store nodes that are yet to be explored.
+
 ## Profiling Method
 
 The following methods were used for profiling:
@@ -51,6 +61,10 @@ For the selected graph, BFS recorded a lower measured execution time than DFS.
 
 Both BFS and DFS expanded the same number of nodes, i.e. 30 nodes.
 
+Both algorithms found the same path:
+
+`A → C → G → O → AD`
+
 The result is specific to the selected graph and search conditions.
 
 ## py-spy Profiling
@@ -61,3 +75,4 @@ The profiling commands used were:
 
 ```text
 py-spy record -o bfs_search.svg -- python bfs_search.py
+py-spy record -o dfs_search.svg -- python dfs_search.py
