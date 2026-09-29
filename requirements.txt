@@ -1,0 +1,3 @@
+# SLE-2 BFS vs DFS Profiling
+# No external Python packages are required.
+# The project uses Python standard library modules.
