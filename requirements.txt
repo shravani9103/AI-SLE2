@@ -1,3 +1,6 @@
-# SLE-2 BFS vs DFS Profiling
-# No external Python packages are required.
-# The project uses Python standard library modules.
+ # SLE-2 BFS vs DFS Profiling
+
+# Python standard library is used for BFS and DFS implementation.
+# py-spy is used for performance profiling.
+
+py-spy
