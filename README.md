@@ -1,4 +1,4 @@
-# SLE-2: BFS vs DFS Profiling
+ # SLE-2: BFS vs DFS Profiling
 
 ## Student Details
 
@@ -31,9 +31,11 @@ The following methods were used for profiling:
 
 - **Execution Time:** Python `timeit` module
 - **Node Measurement:** Manual node counting
-- **Number of Profiling Executions:** 1,000
+- **Profiler:** `py-spy`
+- **Profiling Runs:** 1,000 runs for time measurement
+- **Additional Profiling:** 200,000 BFS/DFS runs for `py-spy` flamegraph generation
 
-The same graph, start node, and goal node were used for both algorithms to make the comparison fair.
+The same graph, start node, and goal node were used for both algorithms.
 
 ## Results
 
@@ -51,45 +53,11 @@ Both BFS and DFS expanded the same number of nodes, i.e. 30 nodes.
 
 The result is specific to the selected graph and search conditions.
 
-## Justification and Analysis
+## py-spy Profiling
 
-The profiling results show that BFS had an average execution time of 0.011309 ms, while DFS had an average execution time of 0.013244 ms.
+`py-spy` was used to generate flamegraphs for both search algorithms.
 
-Both algorithms expanded 30 nodes and found the same path from A to AD.
+The profiling commands used were:
 
-Therefore, for this particular experiment, BFS recorded the lower measured execution time.
-
-The result may change if the graph structure, node ordering, or goal position is changed.
-
-This demonstrates why empirical profiling is useful for understanding the practical performance of algorithms.
-
-## Technologies Used
-
-- Python
-- Python `timeit`
-- Breadth-First Search
-- Depth-First Search
-- GitHub
-- Visual Studio Code
-
-## Project Files
-
-| File | Description |
-|---|---|
-| `sle2.py` | BFS and DFS profiling program |
-| `SLE2_26UAM307_Shravani Bramhadande.pdf` | SLE-2 profiling report |
-| `README.md` | Project and experiment documentation |
-
-## AI Contribution
-
-ChatGPT was used to understand the SLE-2 requirements, prepare and explain the BFS and DFS profiling code, explain the profiling method, and organize the report.
-
-The program was executed by the student, and the profiling results were verified and used for the final analysis.
-
-## Conclusion
-
-This experiment helped demonstrate how profiling can be used to compare search algorithms using actual performance data.
-
-BFS and DFS were tested on the same graph using execution time and nodes expanded as performance measures.
-
-For the selected graph, BFS recorded a lower measured execution time, while both algorithms expanded the same number of nodes.
+```text
+py-spy record -o bfs_search.svg -- python bfs_search.py
