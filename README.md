@@ -76,3 +76,4 @@ The profiling commands used were:
 ```text
 py-spy record -o bfs_search.svg -- python bfs_search.py
 py-spy record -o dfs_search.svg -- python dfs_search.py
+py-sys record --format flamegraph --output
