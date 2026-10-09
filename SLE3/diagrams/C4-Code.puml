@@ -1,0 +1,14 @@
+@startuml C4-Code
+title C4 Level 4 - Code Level
+rectangle "traffic_graph.py\nTraffic state graph" as graph
+rectangle "bfs_search.py\nbfs(graph,start,goal)" as bfs
+rectangle "dfs_search.py\ndfs(graph,start,goal)" as dfs
+rectangle "signal_decision.py\nBuild signal action" as decision
+rectangle "sle3_profiling.py\nTime + node analysis" as timing
+graph --> bfs
+graph --> dfs
+bfs --> decision
+dfs --> decision
+bfs --> timing
+dfs --> timing
+@enduml

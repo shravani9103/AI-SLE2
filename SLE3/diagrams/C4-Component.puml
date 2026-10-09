@@ -1,0 +1,17 @@
+@startuml C4-Component
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+LAYOUT_TOP_DOWN()
+title C4 Level 3 - Search Engine Components
+Container_Boundary(search, "Search Engine") {
+  Component(graph, "Traffic State Graph", "Graph model")
+  Component(bfs, "BFS Search Module", "Queue / level-order")
+  Component(dfs, "DFS Search Module", "Stack / depth-first")
+  Component(checker, "Goal / State Checker", "Checks target state")
+  Component(builder, "Path / Action Builder", "Builds selected action")
+}
+Rel(graph, bfs, "graph")
+Rel(graph, dfs, "graph")
+Rel(bfs, checker, "candidate state")
+Rel(dfs, checker, "candidate state")
+Rel(checker, builder, "selected path")
+@enduml

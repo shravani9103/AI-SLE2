@@ -1,0 +1,18 @@
+@startuml C4-Container
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+LAYOUT_TOP_DOWN()
+title C4 Level 2 - Container View
+Person(operator, "Traffic Operator", "Provides traffic inputs")
+System_Boundary(agent, "Traffic Signal Optimizer Agent") {
+  Container(input, "Traffic Input", "Python", "Receives vehicle count, queue and waiting-time data")
+  Container(processor, "Data Processor", "Python", "Builds traffic-state graph")
+  Container(search, "Search Engine", "Python", "Runs BFS and DFS")
+  Container(decision, "Signal Decision", "Python", "Interprets selected path")
+  Container(output, "Output Module", "Python", "Displays action and status")
+}
+Rel(operator, input, "traffic data")
+Rel(input, processor, "traffic state")
+Rel(processor, search, "graph")
+Rel(search, decision, "path")
+Rel(decision, output, "action")
+@enduml

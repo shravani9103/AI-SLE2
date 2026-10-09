@@ -1,0 +1,14 @@
+@startuml C4-Context
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+LAYOUT_TOP_DOWN()
+title C4 Level 1 - System Context
+Person(operator, "Traffic Operator", "Provides traffic inputs")
+System(agent, "Traffic Signal Optimizer Agent", "BFS / DFS Search")
+System_Ext(state, "Traffic State", "Vehicle / queue state")
+System_Ext(env, "Traffic Signal Environment", "Receives proposed action")
+System_Ext(result, "Search Result / Suggested Action", "Path / action output")
+Rel(operator, agent, "traffic data")
+Rel(state, agent, "state")
+Rel(agent, result, "path / action")
+Rel(agent, env, "signal decision")
+@enduml

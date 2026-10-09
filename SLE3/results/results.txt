@@ -1,0 +1,16 @@
+SLE-3 Traffic Signal Optimizer Agent — BFS vs DFS Performance
+==============================================================
+Start State: S0 (High North-South queue)
+Goal State: S4 (Reduced congestion / goal state)
+Runs: 10000
+
+BFS Average Time: 0.001936 ms
+BFS Nodes Expanded: 5
+BFS Path: S0 -> S1 -> S4
+
+DFS Average Time: 0.001506 ms
+DFS Nodes Expanded: 4
+DFS Path: S0 -> S1 -> S3 -> S4
+
+Lower execution time: DFS
+Note: measured time varies by machine and Python runtime.
